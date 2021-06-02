@@ -33,11 +33,9 @@ pub fn init_enums() {
 }
 
 struct QuitMessage;
-#[warn(dead_code)]
-
 struct MoveMessage {
-    x: i32,
-    y: i32,
+    _x: i32,
+    _y: i32,
 }
 
 struct WriteMessage(String);
@@ -45,9 +43,9 @@ struct WriteMessage(String);
 struct ChangeColorMessage(i32, i32, i32);
 
 enum Message {
-    Quit(QuitMessage),
-    Move(MoveMessage),
-    Write(WriteMessage),
+    _Quit(QuitMessage),
+    _Move(MoveMessage),
+    _Write(WriteMessage),
     ChangeColor(ChangeColorMessage),
 }
 
