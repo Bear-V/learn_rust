@@ -1,5 +1,5 @@
 [package]
-name = "beginner_rust"
+name = "base_code"
 version = "0.1.0"
 authors = ["AH_Pirate <15212726737@163.com>"]
 edition = "2018"
