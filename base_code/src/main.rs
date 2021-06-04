@@ -8,6 +8,8 @@ mod g_quote_borrow;
 mod h_slice;
 mod i_struct;
 mod j_enums;
+mod k_match;
+mod l_if_let;
 
 fn main() {
     variable();
