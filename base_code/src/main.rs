@@ -10,6 +10,10 @@ mod i_struct;
 mod j_enums;
 mod k_match;
 mod l_if_let;
+mod m_collections;
+mod n_string;
+mod o_hashmap;
+mod p_panic;
 
 fn main() {
     variable();
