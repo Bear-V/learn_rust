@@ -1,3 +1,5 @@
+use std::fs::File;
+
 mod a_variable;
 mod b_data_type;
 mod c_function;
@@ -38,6 +40,9 @@ fn main() {
     println!("==============");
 
     println!("the last step is main.rs");
+    // let _f = File::open("hello.txt").unwrap();
+
+
 }
 
 // enums
