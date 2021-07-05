@@ -41,8 +41,6 @@ fn main() {
 
     println!("the last step is main.rs");
     // let _f = File::open("hello.txt").unwrap();
-
-
 }
 
 // enums
