@@ -1,5 +1,3 @@
-use std::fs::File;
-
 mod a_variable;
 mod b_data_type;
 mod c_function;
@@ -16,6 +14,7 @@ mod m_collections;
 mod n_string;
 mod o_hashmap;
 mod p_panic;
+mod r_generics;
 
 fn main() {
     variable();
