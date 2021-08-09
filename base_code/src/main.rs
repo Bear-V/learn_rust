@@ -15,6 +15,7 @@ mod n_string;
 mod o_hashmap;
 mod p_panic;
 mod r_generics;
+mod s_trait;
 
 fn main() {
     variable();
