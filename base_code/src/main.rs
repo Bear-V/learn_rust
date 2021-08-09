@@ -16,6 +16,7 @@ mod o_hashmap;
 mod p_panic;
 mod r_generics;
 mod s_trait;
+mod t_lifetimes;
 
 fn main() {
     variable();
