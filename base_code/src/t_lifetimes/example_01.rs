@@ -6,7 +6,8 @@ fn longest<'a>(x: &'a str, y: &'a str) -> &'a str {
     }
 }
 
-fn new_longest<'a>(x: &'a str, y: &str) -> &'a str {
+#[allow(dead_code)]
+fn new_longest<'a>(x: &'a str, _y: &str) -> &'a str {
     x
 }
 

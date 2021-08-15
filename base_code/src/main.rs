@@ -17,6 +17,8 @@ mod p_panic;
 mod r_generics;
 mod s_trait;
 mod t_lifetimes;
+mod u_iterator;
+mod v_pointer;
 
 fn main() {
     variable();
