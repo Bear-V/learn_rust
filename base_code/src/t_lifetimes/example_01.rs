@@ -6,19 +6,23 @@ fn longest<'a>(x: &'a str, y: &'a str) -> &'a str {
     }
 }
 
+fn new_longest<'a>(x: &'a str, y: &str) -> &'a str {
+    x
+}
+
 // &i32        // 引用
 // &'a i32     // 带有显式生命周期的引用
 // &'a mut i32 // 带有显式生命周期的可变引用
 
-fn test_fn() {
-    let string1 = String::from("long string is long");
-    let result;
-    {
-        let string2 = String::from("xyz");
-        result = longest(string1.as_str(), string2.as_str());
-    }
-    println!("The longest string is {}", result);
-}
+// fn test_fn() {
+//     let string1 = String::from("long string is long");
+//     let result;
+//     {
+//         let string2 = String::from("xyz");
+//         result = longest(string1.as_str(), string2.as_str());
+//     }
+//     println!("The longest string is {}", result);
+// }
 
 #[test]
 fn test() {
@@ -38,5 +42,5 @@ fn test() {
     let result = longest(string1.as_str(), string2);
     println!("the longest string is {}", result);
 
-    test_fn()
+    // test_fn()
 }
