@@ -1,68 +1,22 @@
-use std::ops::Deref;
+mod example_box;
+mod example_drop;
+mod example_rc;
+mod example_refCell;
 
-#[cfg(test)]
-mod pointer_test {
-    use crate::v_pointer::List::{Cons, Nil};
-
-    #[test]
-    fn one() {
-        let b = Box::new(5);
-        println!("b = {}", b);
-    }
-    #[test]
-    fn two() {
-        let list = Cons(1, Box::new(Cons(2, Box::new(Cons(3, Box::new(Nil))))));
-        println!("{:?}", list);
-    }
-}
-
-#[derive(Debug)]
-enum List {
-    Cons(i32, Box<List>),
-    Nil,
-}
-
-#[cfg(test)]
-mod deref_trait {
-    use crate::v_pointer::MyBox;
-
-    #[test]
-    fn one() {
-        let x = 5;
-        let y = &x;
-
-        assert_eq!(5, x);
-        assert_eq!(5, *y);
-    }
-    #[test]
-    fn two() {
-        let x = 5;
-        let y = Box::new(x);
-
-        assert_eq!(5, x);
-        assert_eq!(5, *y);
-    }
-    #[test]
-    fn third() {
-        let x = 5;
-        let y = MyBox::new(x);
-
-        assert_eq!(5, x);
-        assert_eq!(5, *y);
-    }
-}
-
-struct MyBox<T>(T);
-
-impl<T> MyBox<T> {
-    fn new(x: T) -> MyBox<T> {
-        MyBox(x)
-    }
-}
-
-impl<T> Deref for MyBox<T> {
-    type Target = T;
-    fn deref(&self) -> &T {
-        &self.0
-    }
-}
+// 类似于 Rc<T>，RefCell<T> 只能用于单线程场景。
+// 如果尝试在多线程上下文中使用RefCell<T>，会得到一个编译错误。
+// 第十六章会介绍如何在多线程程序中使用 RefCell<T> 的功能。
+//
+// 如下为选择 Box<T>，Rc<T> 或 RefCell<T> 的理由：
+//
+// Rc<T> 允许相同数据有多个所有者；
+// Box<T> 和 RefCell<T> 有单一所有者。
+//
+// Box<T> 允许在编译时执行不可变或可变借用检查；
+// Rc<T>仅允许在编译时执行不可变借用检查；
+// RefCell<T> 允许在运行时执行不可变或可变借用检查。
+//
+// 因为 RefCell<T> 允许在运行时执行可变借用检查，
+// 所以我们可以在即便 RefCell<T> 自身是不可变的情况下修改其内部的值。
+//
+// 在不可变值内部改变值就是 内部可变性 模式。让我们看看何时内部可变性是有用的，并讨论这是如何成为可能的。
