@@ -1,7 +1,8 @@
 mod example_box;
 mod example_drop;
 mod example_rc;
-mod example_refCell;
+mod example_rc_and_ref_cell;
+mod example_ref_cell;
 
 // 类似于 Rc<T>，RefCell<T> 只能用于单线程场景。
 // 如果尝试在多线程上下文中使用RefCell<T>，会得到一个编译错误。

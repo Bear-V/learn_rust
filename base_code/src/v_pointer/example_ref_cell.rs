@@ -1,7 +1,7 @@
 #[test]
 fn one() {
-    let x = 5;
-    let y = &mut x;
+    let mut x = 5;
+    let _y = &mut x;
 }
 
 pub trait Messenger {
@@ -45,22 +45,33 @@ where
 #[cfg(test)]
 mod test_double {
     use super::*;
+    use std::cell::RefCell;
 
     struct MockMessenger {
-        sent_messages: Vec<String>,
+        sent_messages: RefCell<Vec<String>>,
     }
 
     impl MockMessenger {
         fn new() -> MockMessenger {
             MockMessenger {
-                sent_messages: vec![],
+                sent_messages: RefCell::new(vec![]),
             }
         }
     }
 
     impl Messenger for MockMessenger {
         fn send(&self, msg: &str) {
-            self.sent_messages.push(String::from(message))
+            self.sent_messages.borrow_mut().push(String::from(msg))
         }
+    }
+
+    #[test]
+    fn it_sends_an_over_75_percent_warning_message() {
+        let mock_messenger = MockMessenger::new();
+        let mut limit_tracker = LimitTracker::new(&mock_messenger, 100);
+
+        limit_tracker.set_value(80);
+
+        assert_eq!(mock_messenger.sent_messages.borrow().len(), 1);
     }
 }

@@ -14,7 +14,7 @@ fn one() {
         data: String::from("my stuff"),
     };
     std::mem::drop(c);
-    let d = CustomSmartPointer {
+    let _d = CustomSmartPointer {
         data: String::from("other stuff"),
     };
     println!("CustomSmartPointers created");
