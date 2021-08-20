@@ -19,6 +19,7 @@ mod s_trait;
 mod t_lifetimes;
 mod u_iterator;
 mod v_pointer;
+mod w_concurrent;
 
 fn main() {
     variable();
