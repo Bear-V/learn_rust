@@ -1,8 +1,10 @@
+#[allow(dead_code)]
 pub struct AveragedCollection {
     list: Vec<i32>,
     average: f64,
 }
 
+#[allow(dead_code)]
 impl AveragedCollection {
     pub fn add(&mut self, value: i32) {
         self.list.push(value);
