@@ -9,11 +9,14 @@ edition = "2018"
 [dependencies]
 
 [workspace]
-members=[
+members = [
     "restaurant",
     "minigrep",
     "learn_crate",
     "closures_test",
     "base_code",
     "adder"
+]
+exclude = [
+    "hello_web"
 ]
